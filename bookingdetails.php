@@ -60,6 +60,7 @@ if ( isset($_POST['name']) && isset($_POST['contact']) && isset($_POST['date']) 
 ?>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <header>
