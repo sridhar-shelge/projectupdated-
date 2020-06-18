@@ -7,7 +7,10 @@ $username = $url["user"];
 $password = $url["pass"];
 $db = substr($url["path"], 1);
 
-$pdo = new PDO('mysql:host=$server;port=3306;dbname=$db', 
-   '$username', '$password');
+$pdo = new PDO("mysql:host=$server;port=8889;dbname=$db", 
+   $username, $password);
+
 // See the "errors" folder for details...
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+?>
