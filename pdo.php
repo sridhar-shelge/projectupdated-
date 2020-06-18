@@ -7,7 +7,7 @@ $username = $url["user"];
 $password = $url["pass"];
 $db = substr($url["path"], 1);
 
-$pdo = new PDO("mysql:host=$server;port=8889;dbname=$db", 
+$pdo = new PDO("mysql:host=".$server.";dbname=".$db."", 
    $username, $password);
 
 // See the "errors" folder for details...
