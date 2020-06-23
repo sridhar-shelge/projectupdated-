@@ -14,7 +14,46 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/landingpag.css">
+        <style>
+            .fa {
+              
+
+              padding: 10px;
+              font-size: 30px;
+              width: 50px;
+              text-align: center;
+              text-decoration: none;
+              border-radius: 50%;
+            }
+
+            /* Add a hover effect if you want */
+            .fa:hover {
+              opacity: 0.7;
+            }
+
+            /* Set a specific color for each brand */
+
+            /* Facebook */
+            .fa-facebook {
+              background: #3B5998;
+              color: white;
+            }
+
+            /* Twitter */
+            .fa-twitter {
+              background: #55ACEE;
+              color: white;
+            }
+            .fa-linkedin {
+              background: #007bb5;
+              color: white;
+            }
+            .fa-youtube {
+              background: #bb0000;
+              color: white;
+            }
+        </style>
 	</head>
 	<header>
         <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light" id="navigation">
@@ -33,10 +72,13 @@
               <li class="nav-item">
                 <a class="nav-link" href="#contact-us">Contact</a>
               </li>
+               <li class="nav-item">
+                <a class="nav-link" href="admin.php">Admin</a>
+              </li>
               <?php
                 if ( !isset($_SESSION["email"]) ) {
                     echo('<li class="nav-item">');
-                    echo('<a class="nav-link" href="signup.php">Login/SignUp</a>'); 
+                    echo('<a class="nav-link" href="signup.php">SignUp</a>'); 
                     echo('</li>');
                 }
                 else{
@@ -50,18 +92,22 @@
         </nav>
     </header>
     <body data-spy="scroll" data-target=".navbar" data-offset="50">
-        <div class="container">
+        <div class="container-fluid backg">
             <div class="carousel slide" id="main-carousel" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
                     <li data-target="#main-carousel" data-slide-to="1"></li>
+                    <li data-target="#main-carousel" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block img-fluid mx-auto" src="images/slide 1.jpg">
+                        <img class="d-block img-fluid mx-auto" src="images/slide 1.png">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block img-fluid mx-auto" src="images/slide 3.jpg">
+                        <img class="d-block img-fluid mx-auto" src="images/slide 2.png">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block img-fluid mx-auto" src="images/slide 3.png">
                     </div>
                 </div>
                 <a href="#main-carousel" class="carousel-control-prev" data-slide="prev">
@@ -75,27 +121,28 @@
             </div>
         </div>
         <div class="container" id="home">
-            <div class="row justify-content-around">
+            <div class="row justify-content-center">
                 <div class="col-11 col-md-5">
                     <img src="images/practo.png" height="140px" width="256px" class="img img-responsive">
                 </div>
-                <div class="col-11 col-md-6 my-auto">
-                    <p>
+                <div class="col-11 col-md-5 my-auto">
+                    <h3>
                         Introducing Video Consultations.<br>
                         Don&apos;t delay your health concerns.
-                    </p>
+                    </h3>
+                    <br>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <button class="btn btn-success" onclick="location.href='bookingpage.php';">Book a Diagnostic Test</button>
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+                    <button class="btn btn-success" onclick="location.href='bookingpage.php';"><h4>Book a Diagnostic Test</h4></button>
                 </div>
             </div>
         </div>
         <div class="container" id="details">
             <div class="row justify-content-around">
                 <div class="col-md-5" id="features">
-                    <h2>Features</h2>
+                    <h2 style="text-align: center; color: green">Features</h2>
                     <ul>
                         <li>Search doctors nearby</li>
                         <li>Online consultations</li>
@@ -106,7 +153,7 @@
                     </ul>
                 </div>
                 <div class="col-md-5" id="advantages">
-                    <h2>Advantages</h2>
+                    <h2 style="text-align: center; color: green">Advantages</h2>
                     <ul>
                         <li>No Need to Travel</li>
                         <li>Improved ways to check your symptoms</li>
@@ -120,115 +167,60 @@
         </div>
         <div class="container" id="about">
             <div class="container">
-            	<div class="row">
-                	<div>
-		                <h2>Your home for health</h2>
-		                <p>
-		                    For millions of people, Practo is the trusted and familiar home where they know they&apos;ll find a healing touch. It connects them with everything they need to take good care of themselves and their family - assessing health issues, finding the right doctor, booking diagnostic tests, obtaining medicines, storing health records or learning new ways to live healthier.<br><br>
-		                    Healthcare providers can also harness the power of Practo as the definitive platform that helps them build their presence, grow establishments and engage patients more deeply than ever.
-		                </p>
-		            </div>
-		        </div>
-            </div>
-            <div>
-                <h2>Diverse people. One purpose.</h2>
-                <p>We are dreamers, thinkers and do-ers rolled into one.Together, we want to improve the healthcare experience for all humanity. We are guided by our values and driven by our motto to do great. These are not just principles for our products or our company, but they are a reflection of who we are as people.</p>
-            </div>
-            <div>
-                <h2>#DoGreat</h2>
-                <p>Do Great is our motto and is the hallmark of a true Practeon. It signifies the intrinsic motivation in each Practeon to strive for excellence. Every time. This means Practeons do their best work, not for want of rewards or recognitions but because they expect it of themselves.</p>
+            	<div class="row justify-content-start" id="about_pad">
+                    <div class="co-11 col-md-5" id="about1">
+                    	<div>
+    		                <h2 style="text-align: center; color: blue">Your home for health</h2>
+    		                <p>
+    		                    For millions of people, Practo is the trusted and familiar home where they know they&apos;ll find a healing touch. It connects them with everything they need to take good care of themselves and their family - assessing health issues, finding the right doctor, booking diagnostic tests, obtaining medicines, storing health records or learning new ways to live healthier.<br>
+    		                </p>
+    		            </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center" id="about_pad">
+                    <div class="co-11 col-md-5" id="about2">
+                        <div>
+                            <h2 style="text-align: center; color: white">Diverse people. One purpose.</h2>
+                            <p>We are dreamers, thinkers and do-ers rolled into one.Together, we want to improve the healthcare experience for all humanity. We are guided by our values and driven by our motto to do great. These are not just principles for our products or our company, but they are a reflection of who we are as people.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-start">
+                    <div class="co-11 col-md-5" id="about3">
+                        <div>
+                            <h2 style="text-align: center; color: blue">DoGreat</h2>
+                            <p>Do Great is our motto and is the hallmark of a true Practeon. It signifies the intrinsic motivation in each Practeon to strive for excellence. Every time. This means Practeons do their best work, not for want of rewards or recognitions but because they expect it of themselves.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
-    <footer>
-        <div class="row justify-content-around">
-            <div class="col-11 col-sm-6" id="contact-us">
-                <h2>Contact Us</h2>
-                <p>Have questions about our products, support services, or anything else? Let us know and we&apos;ll get back to you.</p>
+    <br>
+    <footer id="foot">
+        <div class="row justify-content-around" id="foot1">
+            <div class="col-11 col-md-4" id="contact-us" >
+                <h2 style="color: white">Contact Us</h2>
+                <b>Have questions about our products, support services, or anything else? Let us know and we&apos;ll get back to you.</b>
+                <hr>
                 <div id="address">
-                    <h4>Address</h4>
-                    <p>Salarpuria symbiosis Arekere Village Begur, Bannerghatta Main Rd, Venugopal Reddy Layout, Uttarahalli Hobli, Bengaluru, Karnataka 560076</p>
-                    <span class="fa-stack fa-lg">
-                        <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                        <i class="fas fa-blog fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <a href="https://blog.practo.com/" data-toggle="tooltip" data-placement="right" title="Our Blog">Blog</a><br>
-                    <span class="fa-stack fa-lg">
-                        <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                        <i class="fa fa-newspaper-o fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <a href="https://www.practo.com/company/press" data-toggle="tooltip" data-placement="right" title="Latest News">Press</a>
+                    <h4 style="color: white">Address</h4>
+                    <strong>Salarpuria symbiosis Arekere Village Begur, Bannerghatta Main Rd, Venugopal Reddy Layout, Uttarahalli Hobli, Bengaluru, Karnataka 560076</strong>
+                    <hr>
                 </div>
             </div>
-            <div class="col-11 col-sm-5 col-md-4" id="quick-links">
-                <h2>Social</h2>
-                <ul>
-                    <li>
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <a href="https://www.facebook.com/practo">Facebook</a></li>
-                    <li>
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <a href="https://twitter.com/Practo">Twitter</a>
-                    </li>
-                    <li>
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                            <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <a href="https://www.linkedin.com/company/practo-technologies-pvt-ltd">Linkedin</a>
-                    </li>
-                    <li>
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                            <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <a href="https://www.youtube.com/user/PractoSupport">Youtube</a>
-                    </li>
-                    <li>
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <a href="https://github.com/practo">Github</a>
-                    </li>
-                </ul>
-                <h2>Quick Links</h2>
-                <ul>
-                    <li>
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                            <i class="fa fa-home fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <a href="#home">Home</a>
-                    </li>
-                    <li>
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                            <i class="fa fa-ticket fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <a href="New Booking Page.php">Book a Diagnostic Test</a>
-                    </li>
-                    <li>
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                            <i class="fa fa-info fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <a href="#about">About</a>
-                    </li>
-                    <li>
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                            <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <a href="#contact-us">Contact Us</a>
-                    </li>
-                </ul>
+            <div class="col-11 col-md-5" id="contact-us">
+                <h3 style="color: red">Social</h3>
+                <a href="https://www.facebook.com/practo" class="fa fa-facebook"></a>
+                <a href="https://twitter.com/Practo" class="fa fa-twitter"></a>
+                <a href="https://www.linkedin.com/company/practo-technologies-pvt-ltd" class="fa fa-linkedin"></a>
+                <a href="https://www.youtube.com/user/PractoSupport" class="fa fa-youtube"></a>
+                <hr>
+                <h3 style="color: red">Quick Links</h3>
+                <a href="#home" class="fa fa-home" style="color: black;"></a>
+                <a href="bookingpage.php" class="fa fa-ticket" style="color: black;"></a>
+                <a href="#about" class="fa fa-info" style="color: black;"></a>
+                <a href="#contact-us" class="fa fa-phone" style="color: black;"></a>
             </div>
         </div>
     </footer>

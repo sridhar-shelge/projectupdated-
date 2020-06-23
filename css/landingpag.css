@@ -1,0 +1,108 @@
+body {
+	padding-top: 70px;
+	background-color:   rgba(235,233,249,1);
+
+}
+
+.backg {
+	background-image: url("../images/background1.jpg");
+	border-radius: 41px 41px 41px 41px;
+	-moz-border-radius: 41px 41px 41px 41px;
+	-webkit-border-radius: 41px 41px 41px 41px;
+	border: 0px solid #000000;
+}
+
+.navbar-brand {
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.nav-link {
+    font-size: 15px;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+#home {
+	padding: 20px;
+	text-align: center;
+	background: rgb(236,241,101);
+	background: -moz-linear-gradient(left, rgb(236,241,101) 0%, rgb(254,201,67) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgb(236,241,101)), color-stop(100%, rgb(254,201,67)));
+	background: -webkit-linear-gradient(left, rgb(236,241,101) 0%, rgb(254,201,67) 100%);
+	background: -o-linear-gradient(left, rgb(236,241,101) 0%, rgb(254,201,67) 100%);
+	background: -ms-linear-gradient(left, rgb(236,241,101) 0%, rgb(254,201,67) 100%);
+	background: linear-gradient(to right, rgb(236,241,101) 0%, rgb(254,201,67) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ecf165', endColorstr='#fec943', GradientType=1 );
+
+	border-radius: 41px 41px 41px 41px;
+	-moz-border-radius: 41px 41px 41px 41px;
+	-webkit-border-radius: 41px 41px 41px 41px;
+	border: 0px solid #000000;
+}
+
+#features,#advantages, #about2 {
+	margin: 10px;
+	background: rgba(147,206,222,1);
+	background: -moz-linear-gradient(left, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 63%, rgba(73,165,191,1) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(147,206,222,1)), color-stop(63%, rgba(117,189,209,1)), color-stop(100%, rgba(73,165,191,1)));
+	background: -webkit-linear-gradient(left, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 63%, rgba(73,165,191,1) 100%);
+	background: -o-linear-gradient(left, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 63%, rgba(73,165,191,1) 100%);
+	background: -ms-linear-gradient(left, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 63%, rgba(73,165,191,1) 100%);
+	background: linear-gradient(to right, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 63%, rgba(73,165,191,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#49a5bf', GradientType=1 );
+	border-radius: 41px 41px 41px 41px;
+	-moz-border-radius: 41px 41px 41px 41px;
+	-webkit-border-radius: 41px 41px 41px 41px;
+	border: 0px solid #000000;
+}
+
+#about1,#about3{
+	padding: 20px;
+	text-align: center;
+
+	background: rgb(236,241,101);
+	background: -moz-linear-gradient(left, rgb(236,241,101) 0%, rgb(254,201,67) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgb(236,241,101)), color-stop(100%, rgb(254,201,67)));
+	background: -webkit-linear-gradient(left, rgb(236,241,101) 0%, rgb(254,201,67) 100%);
+	background: -o-linear-gradient(left, rgb(236,241,101) 0%, rgb(254,201,67) 100%);
+	background: -ms-linear-gradient(left, rgb(236,241,101) 0%, rgb(254,201,67) 100%);
+	background: linear-gradient(to right, rgb(236,241,101) 0%, rgb(254,201,67) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ecf165', endColorstr='#fec943', GradientType=1 );
+
+	border-radius: 41px 41px 41px 41px;
+	-moz-border-radius: 41px 41px 41px 41px;
+	-webkit-border-radius: 41px 41px 41px 41px;
+	border: 0px solid #000000;
+}
+
+#about_pad {
+	padding: 15px;
+}
+
+#about {
+	background-image: url("../images/background3.jpg");
+	padding: 15px;
+	border-radius: 41px 41px 41px 41px;
+	-moz-border-radius: 41px 41px 41px 41px;
+	-webkit-border-radius: 41px 41px 41px 41px;
+	border: 0px solid #000000;
+}
+
+#foot {
+	background-image: url("../images/background4.jpg");
+	padding: 15px;
+	border-radius: 41px 41px 41px 41px;
+	-moz-border-radius: 41px 41px 41px 41px;
+	-webkit-border-radius: 41px 41px 41px 41px;
+	border: 0px solid #000000;
+}
+
+#foot1 {
+	color: #000000;
+}
+
+
+

@@ -1,0 +1,93 @@
+body {
+    background-color:   rgba(235,233,249,1);
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-dark {
+    background-color: #000000;
+    padding: 0;
+}
+
+.navbar-brand {
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.nav-link {
+    font-size: 15px;
+}
+
+#navigation .active {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#navigation .nav-link:hover {
+    background-color: #000080;
+    color: #ffffff;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+table {
+    color: #ffffff;
+    text-align: center;
+}
+
+tr:nth-child(odd) {
+    background-color: rgba(0, 0, 128, 0.8);
+}
+
+tr:nth-child(even) {
+    background-color: rgba(0, 0, 128, 0.2);
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 0, 0.9);
+    color: #000000;
+}
+
+tbody {
+    display: block;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.btn {
+    box-shadow: 3px 3px 6px #5f5f5f;
+}
+
+.form-control:hover {
+    box-shadow: 0px 0px 10px 4px #ff0000;
+}
+
+.form-control:focus {
+    box-shadow: 0px 0px 10px 4px #0000ff;
+}
+
+.btn:hover {
+    box-shadow: 5px 5px 10px #5f5f5f;
+    transform:scale(1.1,1.1);
+    -webkit-transform:scale(1.1,1.1);
+    -moz-transform:scale(1.1,1.1);
+}
+
+#table1, #table2{
+    background-image: url(../images/background4.jpg);
+    padding: 20px;
+}
+
+#table3 {
+    background-image: url(../images/background3.jpg);
+    padding: 15px;
+}
+

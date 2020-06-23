@@ -34,10 +34,26 @@
 
 ?>
 
-<p>Confirm: Deleting <?= htmlentities($row['name']) ?> Booking's</p>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="css/delete.css"/>
+    </head>
+    <body style="background-color: rgb(10,100,70)">
+        <div class="container">
+            <div class="row justify-content-around">
+                <div class="col">
+                    <h2>Delete from Database</h2>
+                    <p>Confirm: Deleting <?= htmlentities($row['name'])."'s" ?> Booking</p>
+                    <form method="post">
+                        <input type="hidden" name="list_id" value="<?= $row['list_id'] ?>">
+                        <input class="btn btn-success" type="submit" value="Delete" name="delete">
+                    </form>
+                    <button class="btn btn-danger" onclick="location.href='bookinglist.php';">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
 
-<form method="post">
-<input type="hidden" name="list_id" value="<?= $row['list_id'] ?>">
-<input type="submit" value="Delete" name="delete">
-<a href="bookinglist.php">Cancel</a>
-</form>

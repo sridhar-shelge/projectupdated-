@@ -24,15 +24,16 @@ if ( isset($_POST['email']) && isset($_POST['pass']) ) {
         return;
     } else {
         $check = hash('md5', $salt.$_POST['pass']);
-        $stmt=$pdo->prepare("SELECT password,user_id from users where email=:email");
+        $stmt=$pdo->prepare("SELECT password,user_id,name from users where email=:email");
         $stmt->execute(array(":email"=>$_POST['email']));
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if ( $row['password'] == $check) {
+            $_SESSION["name"] = $row["name"];
             $_SESSION["email"] = $_POST["email"];
             $_SESSION["user_id"]=$row['user_id'];
             $_SESSION["success"] = "Logged in.";
             error_log("Login success ".$_POST['email']);
-            header( 'Location: landingpage.php' ) ;
+            header( 'Location: bookingpage.php' ) ;
             return;
         } else {
             $_SESSION["error"] = "Incorrect password.";

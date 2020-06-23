@@ -26,7 +26,7 @@ if ( isset($_POST['name']) && isset($_POST['contact']) && isset($_POST['date']) 
 
 
     $sql = "UPDATE list SET name = :name,
-            contact = :contact, address = :address,booking_id=:booking_id,slot=:slot
+            contact = :contact, address = :address, date=:date,delivery_details=:delivery_details, booking_id=:booking_id,slot=:slot
             WHERE list_id = :list_id";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(array(
@@ -35,23 +35,11 @@ if ( isset($_POST['name']) && isset($_POST['contact']) && isset($_POST['date']) 
         ':contact' => htmlentities($_POST['contact']),
         ':address' => $_POST['address'],
         ':booking_id' => $hash,
+        ':date'=> htmlentities($_POST['date']),
+        ':delivery_details'=> htmlentities($_POST['delivery_details']),
         ':slot' =>htmlentities($_POST['timeslot'])
         ));
 
-
-    $stmt = $pdo->prepare('INSERT INTO bookingdetails
-    (d_id,user_id,name,contact,address,date,timeslot,delivery_details,booking_id) VALUES ( :d_id,:user_id, :name, :contact, :address,:date,:timeslot,:delivery_details,:booking_id)');
-    $stmt->execute(array(
-    ':d_id'=> $_GET['book_id'],
-    ':user_id' => $_SESSION["user_id"] ,
-    ':name' => htmlentities($_POST['name']),
-    ':contact' => htmlentities($_POST['contact']),
-    ':address' => htmlentities($_POST['address']),
-    ':date'=> htmlentities($_POST['date']),
-    ':timeslot'=> htmlentities($_POST['timeslot']),
-    ':delivery_details'=> htmlentities($_POST['delivery_details']),
-    ':booking_id'=> $hash
-    ));
     $_SESSION['success'] = "Record added.";
     header("Location: success.php?user_id=".$_SESSION["user_id"].'&'.'hash='.$hash);
     return;
@@ -60,8 +48,46 @@ if ( isset($_POST['name']) && isset($_POST['contact']) && isset($_POST['date']) 
 ?>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/main.css">
+        <style>
+            .fa {
+              
+
+              padding: 10px;
+              font-size: 30px;
+              width: 50px;
+              text-align: center;
+              text-decoration: none;
+              border-radius: 50%;
+            }
+
+            /* Add a hover effect if you want */
+            .fa:hover {
+              opacity: 0.7;
+            }
+
+            /* Set a specific color for each brand */
+
+            /* Facebook */
+            .fa-facebook {
+              background: #3B5998;
+              color: white;
+            }
+
+            /* Twitter */
+            .fa-twitter {
+              background: #55ACEE;
+              color: white;
+            }
+            .fa-linkedin {
+              background: #007bb5;
+              color: white;
+            }
+            .fa-youtube {
+              background: #bb0000;
+              color: white;
+            }
+        </style>
     </head>
     <header>
         <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light" id="navigation">
@@ -99,7 +125,7 @@ if ( isset($_POST['name']) && isset($_POST['contact']) && isset($_POST['date']) 
                             <label for="name">Name</label>
                         </div>
                         <div class="row">
-                            <input class="form-control" id="name" name="name" type="text">
+                            <input class="form-control" id="name" name="name" type="text" value=<?php echo ($_SESSION['name']); ?>>
                         </div>
                     </div>
                     <div class="col-11 col-md-5">
@@ -164,95 +190,30 @@ if ( isset($_POST['name']) && isset($_POST['contact']) && isset($_POST['date']) 
             </form>
         </div>
     </body>
-    <footer>
-        <div class="row justify-content-around">
-            <div class="col-11 col-sm-6" id="contact-us">
-                <h2>Contact Us</h2>
-                <p>Have questions about our products, support services, or anything else? Let us know and we&apos;ll get back to you.</p>
+    <footer id="foot">
+        <div class="row justify-content-around" id="foot1">
+            <div class="col-11 col-md-4" id="contact-us" >
+                <h2 style="color: white">Contact Us</h2>
+                <b>Have questions about our products, support services, or anything else? Let us know and we&apos;ll get back to you.</b>
+                <hr>
                 <div id="address">
-                    <h4>Address</h4>
-                    <p>Salarpuria symbiosis Arekere Village Begur, Bannerghatta Main Rd, Venugopal Reddy Layout, Uttarahalli Hobli, Bengaluru, Karnataka 560076</p>
-                    <span class="fa-stack fa-lg">
-                        <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                        <i class="fas fa-blog fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <a href="https://blog.practo.com/" data-toggle="tooltip" data-placement="right" title="Our Blog">Blog</a><br>
-                    <span class="fa-stack fa-lg">
-                        <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                        <i class="fa fa-newspaper-o fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <a href="https://www.practo.com/company/press" data-toggle="tooltip" data-placement="right" title="Latest News">Press</a>
+                    <h4 style="color: white">Address</h4>
+                    <strong>Salarpuria symbiosis Arekere Village Begur, Bannerghatta Main Rd, Venugopal Reddy Layout, Uttarahalli Hobli, Bengaluru, Karnataka 560076</strong>
+                    <hr>
                 </div>
             </div>
-            <div class="col-11 col-sm-5 col-md-4" id="quick-links">
-                <h2>Social</h2>
-                <ul>
-                    <li>
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <a href="https://www.facebook.com/practo">Facebook</a></li>
-                    <li>
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <a href="https://twitter.com/Practo">Twitter</a>
-                    </li>
-                    <li>
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                            <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <a href="https://www.linkedin.com/company/practo-technologies-pvt-ltd">Linkedin</a>
-                    </li>
-                    <li>
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                            <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <a href="https://www.youtube.com/user/PractoSupport">Youtube</a>
-                    </li>
-                    <li>
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <a href="https://github.com/practo">Github</a>
-                    </li>
-                </ul>
-                <h2>Quick Links</h2>
-                <ul>
-                    <li>
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                            <i class="fa fa-home fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <a href="#home">Home</a>
-                    </li>
-                    <li>
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                            <i class="fa fa-ticket fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <a href="New Booking Page.php">Book a Diagnostic Test</a>
-                    </li>
-                    <li>
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                            <i class="fa fa-info fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <a href="#about">About</a>
-                    </li>
-                    <li>
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
-                            <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <a href="#contact-us">Contact Us</a>
-                    </li>
-                </ul>
+            <div class="col-11 col-md-5" id="contact-us">
+                <h3 style="color: red">Social</h3>
+                <a href="https://www.facebook.com/practo" class="fa fa-facebook"></a>
+                <a href="https://twitter.com/Practo" class="fa fa-twitter"></a>
+                <a href="https://www.linkedin.com/company/practo-technologies-pvt-ltd" class="fa fa-linkedin"></a>
+                <a href="https://www.youtube.com/user/PractoSupport" class="fa fa-youtube"></a>
+                <hr>
+                <h3 style="color: red">Quick Links</h3>
+                <a href="#home" class="fa fa-home" style="color: black;"></a>
+                <a href="bookingpage.php" class="fa fa-ticket" style="color: black;"></a>
+                <a href="#about" class="fa fa-info" style="color: black;"></a>
+                <a href="#contact-us" class="fa fa-phone" style="color: black;"></a>
             </div>
         </div>
     </footer>
@@ -265,8 +226,17 @@ if ( isset($_POST['name']) && isset($_POST['contact']) && isset($_POST['date']) 
         name = document.getElementById('name').value;
         contact = document.getElementById('contact').value;
         date = document.getElementById('date').value;
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = mm + '/' + dd + '/' + yyyy;
         if (name == null || name == "" || contact == null || contact == "" || date == null || date == "") {
             alert("name,contact,date are required");
+            return false;
+        }
+        if(today>date){
+            alert("select date properly");
             return false;
         }
         return true;
