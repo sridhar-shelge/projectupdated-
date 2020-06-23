@@ -1,6 +1,7 @@
 body {
-    background-color:   rgba(235,233,249,1);
-
+    background-color: #5f5f5f;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar-dark {
