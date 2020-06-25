@@ -33,7 +33,7 @@ if ( isset($_POST['select-tests']) && isset($_POST['select-lab'])  ) {
   }
 
     // Check file size
-    if ($_FILES["prescription"]["size"] > 500000) {
+    if ($_FILES["prescription"]["size"] > 2097152) {
       $uploadOk = 0;
     }
 
@@ -46,6 +46,8 @@ if ( isset($_POST['select-tests']) && isset($_POST['select-lab'])  ) {
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
         $_SESSION['error']='error in uploading file';
+        header("Location:bookingpage.php");
+        return;
     } else {
       if (move_uploaded_file($_FILES["prescription"]["tmp_name"], $target_file)) {
 
