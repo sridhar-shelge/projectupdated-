@@ -46,6 +46,8 @@ if ( isset($_POST['email']) && isset($_POST['pass']) ) {
 
 // Fall through into the View
 ?>
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
