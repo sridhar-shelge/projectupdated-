@@ -15,5 +15,7 @@ There are various labs and tests available to book for users and the admin can m
 # IDE
 Sublime Text  
 
+# link to the website
+[Link](https://yesintern.herokuapp.com/landingpage.php)
 
 
